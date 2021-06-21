@@ -1,0 +1,15 @@
+<h1>Simple PHP Chat W/ Twig</h1>
+
+{% if login != '' %}
+Connected as <strong>{{ login }}</strong><br>
+<form method="GET">
+    <input name="login" value={{login}} hidden>
+    <input name="password" value={{password}} hidden>
+    <input name="message" placeholder="Send a message">
+    <button type="primary">Send</button>
+</form>
+{% endif %}
+
+{% for message in messages %}
+    [<strong>{{message.getLogin()}}</strong> {{message.getDate()}}] {{ message.getMessage() }}<br>
+{% endfor %}
